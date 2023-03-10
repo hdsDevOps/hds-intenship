@@ -9,7 +9,7 @@ const NavLink = ({ to, text }: NavbarLinkProps) => {
 
   return (
     <span onClick={clickHandler}>
-      <Navbar.Link href={to} active={location.pathname === to} className={`${location.pathname === to ? 'bg-[#ad1f29ee]' : ''} rounded-md nav-link`}>
+      <Navbar.Link href={to} active={location.pathname === to} className={`rounded-md nav-link ${location.pathname === to ? 'bg-[#ad1f29ee]' : ''}`}>
         {text}
       </Navbar.Link>
     </span>

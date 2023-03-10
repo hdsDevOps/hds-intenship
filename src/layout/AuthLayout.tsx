@@ -11,7 +11,7 @@ const AuthLayout = () => {
         </h2>
         <Link to='/' className={`nav-link text-[#ad1f29ee]`}>Home</Link>
       </div>
-      <div className="flex-[0.9]">
+      <div className="flex-[0.9] mx-auto max-w-md">
         <Outlet />
       </div>
     </div>

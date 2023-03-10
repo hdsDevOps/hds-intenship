@@ -3,7 +3,7 @@ import { Button, Label } from "../../components";
 
 const Login = () => {
   return (
-    <div className="flex items-center justify-center max-w-[500px] sm:mt-28 mt-14">
+    <div className="flex items-center justify-center w-full sm:mt-28 mt-14">
       <div className="bg-white w-full rounded-lg overflow-hidden shadow-2xl">
         <div className="p-8">
           <form>

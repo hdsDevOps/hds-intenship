@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <div className="flex flex-col items-center justify-center text-black min-h-[70vh]">
       <div className="mx-[2rem]">
-        <h2 className="text-[4.3rem]">Homepage</h2>
+        <h2 className="text-[4.3rem] cursor-default">Homepage</h2>
       </div>
       <div className="mt-2">
         <NoLabel
