@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { User } from "../../utils/UserContextProvider";
 import { useUserDetails } from "../../utils/UserContextProvider";
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
 import { NavbarLinkProps, NavProfileProps } from "../../models";
@@ -38,8 +39,9 @@ const NavInfo = ({
 };
 
 const Header = () => {
-  let profile = useUserDetails()
-  console.log(profile)
+  let {user} : {user: User} = useUserDetails()
+
+  console.log(user)
   return (
     <>
       <Navbar fluid={true} rounded={true}>
@@ -62,7 +64,7 @@ const Header = () => {
           {/* Nav links */}
           <Navbar.Collapse>
             <NavLink to="/" text="Home" />
-            {/* {profile.user} */}
+            {/* {!user.isLoggedIn ? () : ()} */}
             <NavLink to="/login" text="Login" />
             <NavLink to="/register" text="Register" />
           </Navbar.Collapse>

@@ -7,7 +7,7 @@ export function useUserDetails() {
   return useContext(context);
 }
 
-interface User {
+export interface User {
   userName: string;
   isLoggedIn: boolean
 }
