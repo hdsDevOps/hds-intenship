@@ -13,11 +13,12 @@ const NavLink = ({ to, text }: NavbarLinkProps) => {
     <span onClick={clickHandler}>
       <Navbar.Link
         href={to}
-        active={location.pathname === to}
         className={`rounded-md nav-link ${
-          location.pathname === to ? "bg-[#ad1f29ee]" : ""
+          location.pathname === to ? "bg-[#ad1f29]" : "bg-[#ad1]"
         }`}
       >
+        {location.pathname}
+        {to}
         {text}
       </Navbar.Link>
     </span>
@@ -71,11 +72,9 @@ const Header = () => {
           <Navbar.Collapse>
             <NavLink to="/" text="Home" />
             {!user?.isLoggedIn ? (
-               <button className="btn bg-blue-700">Logout</button>
-      
-            ) : (
-              // <NavLink to="/register" text="Register" />
               <NavLink to="/login" text="Login" />
+            ) : (
+              <NavLink to="/register" text="Register" />
             )}
           </Navbar.Collapse>
         </>
