@@ -11,7 +11,13 @@ const NavLink = ({ to, text }: NavbarLinkProps) => {
 
   return (
     <span onClick={clickHandler}>
-      <Navbar.Link href={to} active={location.pathname === to} className={`rounded-md nav-link ${location.pathname === to ? 'bg-[#ad1f29ee]' : ''}`}>
+      <Navbar.Link
+        href={to}
+        active={location.pathname === to}
+        className={`rounded-md nav-link ${
+          location.pathname === to ? "bg-[#ad1f29ee]" : ""
+        }`}
+      >
         {text}
       </Navbar.Link>
     </span>
@@ -39,9 +45,9 @@ const NavInfo = ({
 };
 
 const Header = () => {
-  let {user} : {user: User} = useUserDetails()
+  let { user , loginUser , logoutUser} = useUserDetails();
 
-  console.log(user)
+  console.log(user);
   return (
     <>
       <Navbar fluid={true} rounded={true}>
@@ -64,9 +70,13 @@ const Header = () => {
           {/* Nav links */}
           <Navbar.Collapse>
             <NavLink to="/" text="Home" />
-            {/* {!user.isLoggedIn ? () : ()} */}
-            <NavLink to="/login" text="Login" />
-            <NavLink to="/register" text="Register" />
+            {!user?.isLoggedIn ? (
+               <button className="btn bg-blue-700">Logout</button>
+      
+            ) : (
+              // <NavLink to="/register" text="Register" />
+              <NavLink to="/login" text="Login" />
+            )}
           </Navbar.Collapse>
         </>
       </Navbar>

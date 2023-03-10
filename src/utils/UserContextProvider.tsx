@@ -1,7 +1,7 @@
 import React, { useContext, useState, createContext, useEffect, ReactNode } from "react";
 import { Layout } from "../models";
 
-const context = createContext({});
+const context = createContext<{user?:User,logoutUser?:()=>void , loginUser?:()=>void}>({});
 
 export function useUserDetails() {
   return useContext(context);
