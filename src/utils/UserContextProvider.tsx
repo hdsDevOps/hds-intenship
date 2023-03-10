@@ -1,5 +1,4 @@
-import React, { useContext, useState, createContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useState, createContext, useEffect, ReactNode } from "react";
 import { Layout } from "../models";
 
 const context = createContext({});
@@ -8,9 +7,13 @@ export function useUserDetails() {
   return useContext(context);
 }
 
-const userContext = ({ children }: Layout) => {
-  let navigate = useNavigate();
-  const [user, setUser] = useState<{}>({
+interface User {
+  userName: string;
+  isLoggedIn: boolean
+}
+
+const UserContextProvider = ({ children }: Layout) => {
+  const [user, setUser] = useState<User>({
     userName: "",
     isLoggedIn: false,
   });
@@ -26,16 +29,12 @@ const userContext = ({ children }: Layout) => {
       userName: "",
       isLoggedIn: true,
     });
-
-    navigate("/");
   };
   const logoutUser = () => {
     setUser({
       userName: "",
       isLoggedIn: false,
     });
-
-    navigate("/");
   };
 
   let values = {
@@ -46,4 +45,4 @@ const userContext = ({ children }: Layout) => {
   return <context.Provider value={values}>{children}</context.Provider>;
 };
 
-export default userContext;
+export default UserContextProvider;
